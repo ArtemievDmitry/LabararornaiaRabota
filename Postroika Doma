@@ -1,0 +1,55 @@
+using System;
+class BildinHom {
+     static void Main() {
+         int [] perm = new int [9];
+         int max=0, srav=0;
+         for (int z=0; z<9; z++)
+        { 
+        int schi=Convert.ToInt32(Console.ReadLine());
+        perm[z] = schi;
+        };
+        int perim=(perm[0]+perm[1])*2;
+        if (perm[0]>=perm[1]) {max=perm[0];}
+        else {max=perm[1];}
+if (max>=perm[2]) {
+    
+     if (
+         ((perim - perm[2])*(perm[6]+perm[7])+perm[3]*perm[2])>=(perim*(perm[6]+perm[7])+(perm[4]+perm[8])*perm[2])
+         )
+{
+    Console.WriteLine((perim*(perm[6]+perm[7]))+((perm[4]+perm[8])*perm[2]));
+}
+else 
+{if (
+    ((perim - perm[2])*(perm[6]+perm[7])+perm[3]*perm[2])>=((perim - perm[2])*(perm[6]+perm[7])+perm[2]*(perm[4]+perm[5])))
+    {Console.WriteLine((perim - perm[2])*(perm[6]+perm[7])+perm[2]*(perm[4]+perm[5]));
+    }
+else {
+    Console.WriteLine(((perim - perm[2])*(perm[6]+perm[7])+perm[3]*perm[2]));
+};
+    
+};}
+else { if(perim>=perm[2]){
+    int r=(perim-max)*(perm[6]+perm[7])+(perm[2]-max)*(perm[4]+perm[8])+max*perm[3],
+g=(perim-perm[2])*(perm[6]+perm[7])+(perm[2]-max)*(perm[4]+perm[5])+max*perm[3],
+d=(perim*(perm[6]+perm[7])+(perm[4]+perm[8])*perm[2]),
+q=(perim-perm[2])*(perm[6]+perm[7])+(perm[2])*(perm[4]+perm[5]);
+if (r>=g){srav=g;}
+else {srav=r;};
+if (srav>d) {srav=d;};
+if (srav>q) {srav=q;};
+Console.WriteLine(srav);
+}
+else {
+ int r=(perim-max)*(perm[6]+perm[7])+(perm[2]-max)*(perm[4]+perm[8])+max*perm[3],
+g=(perm[2]-perim)*(perm[4]+perm[8])+(perim-max)*(perm[4]+perm[5])+max*perm[3],
+d=(perim*(perm[6]+perm[7])+(perm[4]+perm[8])*perm[2]),
+q=(perm[2]-perim)*(perm[4]+perm[8])+(perim)*(perm[4]+perm[5]);
+if (r>=g){srav=g;}
+else {srav=r;};
+if (srav>d) {srav=d;};
+if (srav>q) {srav=q;};
+Console.WriteLine(srav);};
+}
+}
+}
