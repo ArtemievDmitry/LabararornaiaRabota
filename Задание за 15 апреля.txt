@@ -1,0 +1,48 @@
+using System;
+using System.IO;
+
+class MergeSortedFiles
+{
+    static void Main()
+    {
+        string puty1 = "sortedFile1.txt";
+        string puty2 = "sortedFile2.txt";
+        string outputPath = "mergedFile.txt";
+
+        using (StreamReader reader1 = new StreamReader(path1))
+        using (StreamReader reader2 = new StreamReader(path2))
+        using (StreamWriter writer = new StreamWriter(outputPath))
+        {
+            string stroka1 = reader1.ReadLine();
+            string stroka2 = reader2.ReadLine();
+
+            while (line1 != null && line2 != null)
+            {
+                if (String.Compare(line1, line2) < 0)
+                {
+                    writer.WriteLine(line1);
+                    line1 = reader1.ReadLine();
+                }
+                else
+                {
+                    writer.WriteLine(line2);
+                    line2 = reader2.ReadLine();
+                }
+            }
+
+            while (line1 != null)
+            {
+                writer.WriteLine(line1);
+                line1 = reader1.ReadLine();
+            }
+
+            while (line2 != null)
+            {
+                writer.WriteLine(line2);
+                line2 = reader2.ReadLine();
+            }
+        }
+
+        Console.WriteLine("Файлы были успешно объединены и отсортированы.");
+    }
+}
